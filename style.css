@@ -1,0 +1,69 @@
+body {
+    background: #000;
+    color: #fff;
+    font-family: Arial;
+    margin: 0;
+}
+header {
+    background: linear-gradient(90deg, #00f, #0ff, #f0f);
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 0 20px #0ff;
+}
+nav button {
+    margin: 5px;
+    padding: 10px 20px;
+    background: #111;
+    border: 2px solid #0ff;
+    color: #0ff;
+    cursor: pointer;
+    transition: 0.2s;
+}
+nav button:hover {
+    background: #0ff;
+    color: #000;
+}
+.section {
+    padding: 20px;
+}
+.hidden {
+    display: none;
+}
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+}
+.product {
+    background: #111;
+    padding: 20px;
+    text-align: center;
+    border: 2px solid #0ff;
+    box-shadow: 0 0 15px #0ff;
+    border-radius: 10px;
+}
+.product img {
+    width: 120px;
+    margin-bottom: 10px;
+}
+.price {
+    color: #0ff;
+    font-size: 20px;
+}
+input[type="number"],
+input[type="text"] {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    background: #000;
+    border: 2px solid #0ff;
+    color: #0ff;
+}
+button {
+    padding: 10px 15px;
+    background: #0ff;
+    color: #000;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+}

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title> CandyLand </title>
+    <link rel="stylesheet" 
+href="style.css">
+</head>
+<body>
+<header>
+    <h1>CandyLand</h1>
+    <nav>
+        <button onclick="showSection('shop')">Shop</button>
+        <button onclick="showSection('cart')">Carrello</button>
+        <button onclick="showSection('checkout')">Checkout</button>
+    </nav>
+</header>
+<!-- SHOP -->
+<section id="shop" class="section">
+    <h2>Dolci & Snack</h2>
+    <div class="product-grid">
+        <!-- PRODUCT TEMPLATE -->
+        <div class="product">
+            <h3>Doritos Sweet Chili</h3>
+            <img src="[i.imgur.com](https://i.imgur.com/hV8O0yX.png)">
+            <p class="price">3.99€</p>
+            <input type="number" min="1" value="1" id="doritos-qty">
+            <button onclick="addToCart('Doritos Sweet Chili', 3.99, 'doritos-qty')">Aggiungi</button>
+        </div>
+        <div class="product">
+            <h3>M&M's Peanut</h3>
+            <img src="[i.imgur.com](https://i.imgur.com/vnhUyFp.png)">
+            <p class="price">2.49€</p>
+            <input type="number" min="1" value="1" id="mms-qty">
+            <button onclick="addToCart('M&M\'s Peanut', 2.49, 'mms-qty')">Aggiungi</button>
+        </div>
+        <div class="product">
+            <h3>Skittles Original</h3>
+            <img src="[i.imgur.com](https://i.imgur.com/Pz8zBtp.png)">
+            <p class="price">1.99€</p>
+            <input type="number" min="1" value="1" id="skittles-qty">
+            <button onclick="addToCart('Skittles Original', 1.99, 'skittles-qty')">Aggiungi</button>
+        </div>
+        <div class="product">
+            <h3>Haribo Goldbears</h3>
+            <img src="[i.imgur.com](https://i.imgur.com/MTuwewO.png)">
+            <p class="price">2.99€</p>
+            <input type="number" min="1" value="1" id="haribo-qty">
+            <button onclick="addToCart('Haribo Goldbears', 2.99, 'haribo-qty')">Aggiungi</button>
+        </div>
+    </div>
+</section>
+<!-- CART -->
+<section id="cart" class="section hidden">
+    <h2>Carrello</h2>
+    <div id="cart-items"></div>
+    <h3 id="cart-total"></h3>
+</section>
+<!-- CHECKOUT -->
+<section id="checkout" class="section hidden">
+    <h2>Checkout</h2>
+    <label>Nome completo</label>
+    <input type="text" id="name">
+    <label>Indirizzo di spedizione</label>
+    <input type="text" id="address">
+    <label>Città</label>
+    <input type="text" id="city">
+    <label>CAP</label>
+    <input type="text" id="zip">
+    <h3>Pagamento</h3>
+    <p>Inseriremo il pagamento via crypto wallet.</p>
+    <!-- QUI INSERIRAI IL TUO WALLET -->
+    <p><strong>INSERISCI QUI IL TUO WALLET:</strong>  
+    <span style="color:#0ff"> // TODO → sostituire con indirizzo wallet</span></p>
+    <button onclick="confirmOrder()">Conferma Ordine</button>
+    <p id="confirmation" class="hidden"></p>
+</section>
+<script src="script.js"></script>
+</body>
+</html>
