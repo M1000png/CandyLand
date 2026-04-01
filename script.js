@@ -10,7 +10,7 @@ function showSection(id) {
     }
 }
 
-// Aggiungere al carrello (senza duplicati)
+// Aggiungere al carrello
 function addToCart(name, price, qtyId) {
     let qty = parseInt(document.getElementById(qtyId).value);
 
@@ -19,15 +19,10 @@ function addToCart(name, price, qtyId) {
     if (existing) {
         existing.qty += qty;
     } else {
-        cart.push({
-            name: name,
-            price: price,
-            qty: qty
-        });
+        cart.push({ name, price, qty });
     }
 
     updateCart();
-    alert("Aggiunto al carrello!");
 }
 
 // Rimuovere prodotto
@@ -39,11 +34,15 @@ function removeFromCart(index) {
 // Aggiornare carrello
 function updateCart() {
     let container = document.getElementById("cart-items");
+    let totalText = document.getElementById("cart-total");
+
     container.innerHTML = '';
     let total = 0;
 
     if (cart.length === 0) {
         container.innerHTML = "<p>Il carrello è vuoto</p>";
+        totalText.innerText = "";
+        return;
     }
 
     cart.forEach((item, index) => {
@@ -58,8 +57,7 @@ function updateCart() {
         total += item.price * item.qty;
     });
 
-    document.getElementById("cart-total").innerText = 
-        "Totale: " + total.toFixed(2) + "€";
+    totalText.innerText = "Totale: " + total.toFixed(2) + "€";
 }
 
 // Conferma ordine
@@ -81,8 +79,8 @@ function confirmOrder() {
 
     document.getElementById("confirmation").classList.remove("hidden");
     document.getElementById("confirmation").innerText =
-        "Ordine confermato! Ti contatteremo dopo la verifica del pagamento.";
+        "Ordine confermato!";
 
-    cart = []; // svuota carrello
+    cart = [];
     updateCart();
 }
