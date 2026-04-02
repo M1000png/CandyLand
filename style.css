@@ -5,7 +5,6 @@ body {
     margin: 0;
 }
 
-/* HEADER */
 header {
     background: linear-gradient(90deg, #00f, #0ff, #f0f);
     padding: 25px;
@@ -14,18 +13,15 @@ header {
     position: relative;
 }
 
-/* overlay per contrasto */
 header::before {
     content: "";
     position: absolute;
     inset: 0;
     background: rgba(0,0,0,0.5);
-    z-index: 0;
 }
 
 header * {
     position: relative;
-    z-index: 1;
 }
 
 /* LOGO */
@@ -41,7 +37,7 @@ header * {
         0 0 80px #f0f;
 }
 
-/* NAV BUTTONS */
+/* NAV */
 nav button {
     margin: 8px;
     padding: 12px 25px;
@@ -50,18 +46,15 @@ nav button {
     color: #fff;
     font-weight: bold;
     cursor: pointer;
-    font-family: 'Orbitron', sans-serif;
     text-transform: uppercase;
     letter-spacing: 2px;
     box-shadow: 0 0 10px #0ff, inset 0 0 10px #0ff;
-    backdrop-filter: blur(5px);
     transition: 0.3s;
 }
 
 nav button:hover {
     background: #0ff;
     color: #000;
-    box-shadow: 0 0 25px #0ff, 0 0 50px #0ff;
 }
 
 /* SECTIONS */
@@ -73,17 +66,6 @@ nav button:hover {
     display: none;
 }
 
-/* TITOLI */
-h2 {
-    font-size: 28px;
-    color: #fff;
-    text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff;
-}
-
-h3, label, p {
-    text-shadow: 0 0 5px #0ff;
-}
-
 /* GRID */
 .product-grid {
     display: grid;
@@ -91,79 +73,39 @@ h3, label, p {
     gap: 25px;
 }
 
-/* PRODUCT */
 .product {
     background: #050505;
     padding: 20px;
     text-align: center;
     border: 2px solid #0ff;
     border-radius: 15px;
-    box-shadow: 0 0 15px #0ff, inset 0 0 10px #0ff;
-    transition: 0.3s;
+    box-shadow: 0 0 15px #0ff;
 }
 
-.product:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 25px #0ff, 0 0 50px #0ff;
-}
-
-.product h3 {
-    text-shadow: 0 0 10px #0ff;
-}
-
-/* IMAGES */
 .product img {
     width: 130px;
-    margin-bottom: 10px;
-    filter: drop-shadow(0 0 10px #0ff);
-}
-
-/* PRICE */
-.price {
-    font-size: 22px;
-    text-shadow: 0 0 10px #0ff;
 }
 
 /* INPUT */
-input[type="number"],
-input[type="text"] {
+input {
     width: 90%;
     padding: 10px;
     margin: 10px 0;
     background: #000;
     border: 2px solid #0ff;
     color: #0ff;
-    font-family: 'Orbitron', sans-serif;
-    box-shadow: 0 0 10px #0ff inset;
 }
 
-/* BUTTONS */
+/* BOTTONI */
 button {
-    padding: 12px 20px;
+    padding: 10px 15px;
     background: transparent;
     color: #0ff;
     border: 2px solid #0ff;
     cursor: pointer;
-    font-family: 'Orbitron', sans-serif;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    box-shadow: 0 0 10px #0ff, inset 0 0 10px #0ff;
-    transition: 0.3s;
 }
 
-button:hover {
-    background: #0ff;
-    color: #000;
-    box-shadow: 0 0 20px #0ff, 0 0 50px #0ff;
-}
-
-/* MOBILE */
-@media (max-width: 600px) {
-    .logo {
-        font-size: 28px;
-    }
-
-    .product img {
-        width: 100px;
-    }
+/* INPUT CARRELLO */
+#cart-items input {
+    width: 60px;
 }
