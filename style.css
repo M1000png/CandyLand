@@ -5,6 +5,7 @@ body {
     margin: 0;
 }
 
+/* HEADER */
 header {
     background: linear-gradient(90deg, #00f, #0ff, #f0f);
     padding: 25px;
@@ -13,15 +14,18 @@ header {
     position: relative;
 }
 
+/* overlay per contrasto */
 header::before {
     content: "";
     position: absolute;
     inset: 0;
     background: rgba(0,0,0,0.5);
+    z-index: 0;
 }
 
 header * {
     position: relative;
+    z-index: 1;
 }
 
 /* LOGO */
@@ -37,15 +41,16 @@ header * {
         0 0 80px #f0f;
 }
 
-/* NAV */
+/* NAV BUTTONS */
 nav button {
     margin: 8px;
     padding: 12px 25px;
-    background: rgba(0, 0, 0, 0.7);
+    background: transparent;
     border: 2px solid #0ff;
-    color: #fff;
+    color: #0ff;
     font-weight: bold;
     cursor: pointer;
+    font-family: 'Orbitron', sans-serif;
     text-transform: uppercase;
     letter-spacing: 2px;
     box-shadow: 0 0 10px #0ff, inset 0 0 10px #0ff;
@@ -55,6 +60,7 @@ nav button {
 nav button:hover {
     background: #0ff;
     color: #000;
+    box-shadow: 0 0 25px #0ff, 0 0 50px #0ff;
 }
 
 /* SECTIONS */
@@ -66,6 +72,17 @@ nav button:hover {
     display: none;
 }
 
+/* TITOLI */
+h2 {
+    font-size: 28px;
+    color: #fff;
+    text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff;
+}
+
+h3, label, p {
+    text-shadow: 0 0 5px #0ff;
+}
+
 /* GRID */
 .product-grid {
     display: grid;
@@ -73,39 +90,79 @@ nav button:hover {
     gap: 25px;
 }
 
+/* PRODUCT */
 .product {
     background: #050505;
     padding: 20px;
     text-align: center;
     border: 2px solid #0ff;
     border-radius: 15px;
-    box-shadow: 0 0 15px #0ff;
+    box-shadow: 0 0 15px #0ff, inset 0 0 10px #0ff;
+    transition: 0.3s;
 }
 
+.product:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px #0ff, 0 0 50px #0ff;
+}
+
+.product h3 {
+    text-shadow: 0 0 10px #0ff;
+}
+
+/* IMAGES */
 .product img {
     width: 130px;
+    margin-bottom: 10px;
+    filter: drop-shadow(0 0 10px #0ff);
+}
+
+/* PRICE */
+.price {
+    font-size: 22px;
+    text-shadow: 0 0 10px #0ff;
 }
 
 /* INPUT */
-input {
+input[type="number"],
+input[type="text"] {
     width: 90%;
     padding: 10px;
     margin: 10px 0;
     background: #000;
     border: 2px solid #0ff;
     color: #0ff;
+    font-family: 'Orbitron', sans-serif;
+    box-shadow: 0 0 10px #0ff inset;
 }
 
-/* BOTTONI */
+/* BUTTONS */
 button {
-    padding: 10px 15px;
+    padding: 12px 20px;
     background: transparent;
     color: #0ff;
     border: 2px solid #0ff;
     cursor: pointer;
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    box-shadow: 0 0 10px #0ff, inset 0 0 10px #0ff;
+    transition: 0.3s;
 }
 
-/* INPUT CARRELLO */
-#cart-items input {
-    width: 60px;
+button:hover {
+    background: #0ff;
+    color: #000;
+    box-shadow: 0 0 20px #0ff, 0 0 50px #0ff;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+    .logo {
+        font-size: 28px;
+    }
+
+    .product img {
+        width: 100px;
+    }
 }
