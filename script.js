@@ -5,7 +5,9 @@ function showSection(id) {
     document.querySelectorAll('.section').forEach(s => s.classList.add('hidden'));
     document.getElementById(id).classList.remove('hidden');
 
-    if (id === "cart") updateCart();
+    if (id === "cart") {
+        updateCart();
+    }
 }
 
 // Aggiungere al carrello
@@ -23,31 +25,34 @@ function addToCart(name, price, qtyId) {
     updateCart();
 }
 
-// Rimuovere tutto
+// Rimuovere prodotto completamente
 function removeFromCart(index) {
     cart.splice(index, 1);
     updateCart();
 }
 
-// Rimuovere quantità
+// Rimuovere quantità specifica
 function removeQuantity(index, inputId) {
-    let qtyToRemove = parseInt(document.getElementById(inputId).value);
+    let input = document.getElementById(inputId);
+    let qtyToRemove = parseInt(input.value);
 
-    if (isNaN(qtyToRemove) || qtyToRemove <= 0) {
-        alert("Quantità non valida");
+    if (!qtyToRemove || qtyToRemove <= 0) {
+        alert("Inserisci una quantità valida");
         return;
     }
 
-    if (qtyToRemove >= cart[index].qty) {
-        cart.splice(index, 1);
+    let item = cart[index];
+
+    if (qtyToRemove < item.qty) {
+        item.qty -= qtyToRemove; // rimuove solo una parte
     } else {
-        cart[index].qty -= qtyToRemove;
+        cart.splice(index, 1); // rimuove tutto se >=
     }
 
     updateCart();
 }
 
-// Aggiorna carrello
+// Aggiornare carrello
 function updateCart() {
     let container = document.getElementById("cart-items");
     let totalText = document.getElementById("cart-total");
@@ -56,19 +61,19 @@ function updateCart() {
     let total = 0;
 
     if (cart.length === 0) {
-        container.innerHTML = "<p>Carrello vuoto</p>";
+        container.innerHTML = "<p>Il carrello è vuoto</p>";
         totalText.innerText = "";
         return;
     }
 
     cart.forEach((item, index) => {
         container.innerHTML += `
-            <div>
+            <div style="margin-bottom:10px; border-bottom:1px solid #0ff; padding:10px;">
                 <p><strong>${item.name}</strong></p>
                 <p>Quantità: ${item.qty}</p>
                 <p>Prezzo: ${(item.price * item.qty).toFixed(2)}€</p>
 
-                <input type="number" min="1" value="1" id="remove-${index}">
+                <input type="number" min="1" value="1" id="remove-${index}" style="width:60px;">
                 <button onclick="removeQuantity(${index}, 'remove-${index}')">➖</button>
 
                 <button onclick="removeFromCart(${index})">❌</button>
@@ -82,13 +87,24 @@ function updateCart() {
 
 // Conferma ordine
 function confirmOrder() {
+    let name = document.getElementById("name").value;
+    let address = document.getElementById("address").value;
+    let city = document.getElementById("city").value;
+    let zip = document.getElementById("zip").value;
+
+    if (!name || !address || !city || !zip) {
+        alert("Compila tutti i campi!");
+        return;
+    }
+
     if (cart.length === 0) {
-        alert("Carrello vuoto");
+        alert("Il carrello è vuoto!");
         return;
     }
 
     document.getElementById("confirmation").classList.remove("hidden");
-    document.getElementById("confirmation").innerText = "Ordine confermato!";
+    document.getElementById("confirmation").innerText =
+        "Ordine confermato!";
 
     cart = [];
     updateCart();
