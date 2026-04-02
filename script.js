@@ -109,34 +109,3 @@ function confirmOrder() {
     cart = [];
     updateCart();
 }
-
-Usa npm
-
-Usa un tag <script>
-Se non utilizzi strumenti di creazione, usa questa opzione per aggiungere e utilizzare l'SDK Firebase JS. Questa opzione va bene per iniziare, ma non è consigliata per le app di produzione. Scopri di più.
-
-Copia e incolla gli script in fondo al tag <body>, ma prima di utilizzare qualsiasi servizio Firebase:
-
-<script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
-    apiKey: "AIzaSyCGXamR4TsNwZ3b6rOJ0lcpKcQwBll9RDg",
-    authDomain: "candy-1f2fc.firebaseapp.com",
-    projectId: "candy-1f2fc",
-    storageBucket: "candy-1f2fc.firebasestorage.app",
-    messagingSenderId: "146950008413",
-    appId: "1:146950008413:web:ff752225d2de01a72fe7b4",
-    measurementId: "G-RHJ069R51E"
-  };
-
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-</script>
